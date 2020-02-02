@@ -1,0 +1,77 @@
+body {
+  max-width: 700px;
+  margin: 0 auto;
+  font-family: 'Roboto', sans-serif;
+  font-size: 17px;
+}
+
+header {
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid lightgray;
+}
+
+header li {
+  display:inline;
+  padding: 15px;
+}
+
+header a {
+  color: gray;
+  text-decoration: none;
+}
+
+header a:hover {
+  color: black;
+}
+
+article {
+  padding: 20px 0;
+}
+
+article h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+#list-of-posts {
+  list-style-type: none;
+  padding: 0;
+  border-top: 1px solid lightgray;
+}
+
+#list-of-posts li {
+  border-bottom: 1px solid lightgray;
+  border-spacing: 0px;
+  border-collapse: collapse;
+  max-width: 800px;
+}
+
+#list-of-posts a {
+  color: black;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+#list-of-posts a:hover {
+  background-color: whitesmoke;
+}
+
+#post {
+  font-family: Open Sans,sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#post a {
+  background-color: rgba(187, 239, 253, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  color: black;
+  text-decoration: none;
+}
+
+#post a:hover {
+  background-color: #bbeffd;
+}
