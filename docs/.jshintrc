@@ -1,0 +1,10 @@
+{
+  "esversion": 6,
+  "browser": true,
+  "globals": {
+    "URLSearchParams": false,
+    "$": false,
+    "Prism": false,
+    "showdown": false
+  }
+}

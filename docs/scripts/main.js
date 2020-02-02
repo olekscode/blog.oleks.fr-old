@@ -1,6 +1,6 @@
 "use strict";
 
-import urls from './constants.js';
+import {urls} from './constants.js';
 
 function getContentsOfFileFromURL(url) {
   var result = null;
