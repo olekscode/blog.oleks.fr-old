@@ -120,3 +120,4 @@ function routeBasedOnSearchParameter() {
 }
 
 routeBasedOnSearchParameter();
+MathJax.Hub.Typeset()
