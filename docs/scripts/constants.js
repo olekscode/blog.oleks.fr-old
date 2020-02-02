@@ -3,7 +3,7 @@ const metadataFolder = blogRawUrl + '/metadata';
 
 export const myself = Object.freeze({
   name: 'Oleksandr Zaitsev',
-  website: 'https://oleks.fr',
+  website: 'https://www.oleks.fr',
   github: 'https://github.com/olekscode',
   twitter: 'https://twitter.com/oleks_lviv'
 });
