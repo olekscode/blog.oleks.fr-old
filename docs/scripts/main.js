@@ -1,6 +1,6 @@
 "use strict";
 
-import {urls} from './constants.js';
+import {myself, urls, img, svg} from './constants.js';
 
 function getContentsOfFileFromURL(url) {
   var result = null;
@@ -46,7 +46,22 @@ function preprocessPostHtml(html) {
 }
 
 function postHeaderHtml(post) {
-  return `<h1>${post.title}</h1><h2>${post.datePublished}</h2>`;
+  return `<div id="post-header">
+    <h1>${post.title}</h1>
+    <div id="author-info">
+      <div id="author-image-name-date">
+        <div id="author-image"><a href="${myself.website}"><img src="${img.profile}"></a></div>
+        <div id="author-name-date">
+          <div id="author-name"><a href="${myself.website}">${myself.name}</a></div>
+          <div id="date-published">${post.datePublished} &middot; 5 min read</div>
+        </div>
+      </div>
+      <div id="social-media-icons">
+        <a href="https://github.com/olekscode">${svg.github}</a>
+        <a href="https://twitter.com/oleks_lviv">${svg.twitter}</a>
+      </div>
+    </div>
+  </div>`;
 }
 
 function postContentsHtml(post) {
