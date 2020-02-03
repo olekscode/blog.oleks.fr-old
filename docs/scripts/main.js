@@ -40,9 +40,28 @@ function removeFirstHeader(html) {
   return html.replace(/<h1.*>.+<\/h1>/, '');
 }
 
+function fixRelativeImagePaths(html) {
+  return html.split('<img src="..').join(`<img src="${urls.blogRawUrl}`);
+}
+
 function preprocessPostHtml(html) {
   html = removeFirstHeader(html);
+  html = fixRelativeImagePaths(html);
   return html;
+}
+
+function fixMathEnvironments(markdown) {
+  // Make sure that '\' characters in math environments are prorely escaped
+  return markdown
+    .split('\\(').join('\\\\(')
+    .split('\\)').join('\\\\)')
+    .split('\\[').join('\\\\[')
+    .split('\\]').join('\\\\]');
+}
+
+function preprocessPostMarkdown(markdown) {
+  markdown = fixMathEnvironments(markdown);
+  return markdown;
 }
 
 function postHeaderHtml(post) {
@@ -66,8 +85,11 @@ function postHeaderHtml(post) {
 
 function postContentsHtml(post) {
   var url = urls.postsFolder + `/${post.id}.md`;
-  var markdownText = getContentsOfFileFromURL(url);
-  var html = convertMarkdownToHtml(markdownText);
+  var markdown = getContentsOfFileFromURL(url);
+  console.log(markdown);
+  markdown = preprocessPostMarkdown(markdown);
+  var html = convertMarkdownToHtml(markdown);
+  console.log(html);
   html = preprocessPostHtml(html);
   return `<div id="post">${html}</div>`;
 }

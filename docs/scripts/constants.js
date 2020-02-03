@@ -9,6 +9,7 @@ export const myself = Object.freeze({
 });
 
 export const urls = Object.freeze({
+  blogRawUrl: blogRawUrl,
   postsFolder: blogRawUrl + '/posts',
   postsMetadataFile: metadataFolder + '/posts.json'
 });
