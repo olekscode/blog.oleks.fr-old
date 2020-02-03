@@ -28,6 +28,8 @@ function convertMarkdownToHtml(markdownText) {
 
 function onContentReloaded() {
   Prism.highlightAll();
+  console.log(MathJax);
+  console.log(MathJax.Hub);
   MathJax.Hub.Typeset();
 }
 
