@@ -28,10 +28,12 @@ function convertMarkdownToHtml(markdownText) {
 
 function onContentReloaded() {
   Prism.highlightAll();
+  MathJax.Hub.Typeset();
 }
 
 function openInMainArea(html) {
   document.getElementById('container').innerHTML = html;
+  onContentReloaded();
 }
 
 function removeFirstHeader(html) {
@@ -86,10 +88,8 @@ function postHeaderHtml(post) {
 function postContentsHtml(post) {
   var url = urls.postsFolder + `/${post.id}.md`;
   var markdown = getContentsOfFileFromURL(url);
-  console.log(markdown);
   markdown = preprocessPostMarkdown(markdown);
   var html = convertMarkdownToHtml(markdown);
-  console.log(html);
   html = preprocessPostHtml(html);
   return `<div id="post">${html}</div>`;
 }
@@ -142,4 +142,3 @@ function routeBasedOnSearchParameter() {
 }
 
 routeBasedOnSearchParameter();
-MathJax.Hub.Typeset();
