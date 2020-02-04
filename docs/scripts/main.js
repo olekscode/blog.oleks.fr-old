@@ -28,8 +28,6 @@ function convertMarkdownToHtml(markdownText) {
 
 function onContentReloaded() {
   Prism.highlightAll();
-  console.log(MathJax);
-  console.log(MathJax.Hub);
   MathJax.typeset();
 }
 
@@ -48,19 +46,28 @@ function fixRelativeImagePaths(html) {
   return html.split('<img src="..').join(`<img src="${urls.blogRawUrl}`);
 }
 
+function removeCodeTagFromMathEnvironments(html) {
+  return html
+    .split('<code>\\(').join('\\(')
+    .split('\\)</code>').join('\\)')
+    .split('<code>\\[').join('\\[')
+    .split('\\]</code>').join('\\]');
+}
+
 function preprocessPostHtml(html) {
   html = removeFirstHeader(html);
   html = fixRelativeImagePaths(html);
+  html = removeCodeTagFromMathEnvironments(html);
   return html;
 }
 
 function fixMathEnvironments(markdown) {
   // Make sure that '\' characters in math environments are prorely escaped
   return markdown
-    .split('\\(').join('\\\\(')
-    .split('\\)').join('\\\\)')
-    .split('\\[').join('\\\\[')
-    .split('\\]').join('\\\\]');
+    .split('\\(').join('```\\(')
+    .split('\\)').join('\\)```')
+    .split('\\[').join('```\\[')
+    .split('\\]').join('\\]```');
 }
 
 function preprocessPostMarkdown(markdown) {
