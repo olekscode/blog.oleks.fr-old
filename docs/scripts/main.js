@@ -23,6 +23,7 @@ function getJsonFromURL(url) {
 
 function convertMarkdownToHtml(markdownText) {
   var converter = new showdown.Converter();
+  converter.setOption('tables', 'true');
   return converter.makeHtml(markdownText);
 }
 
