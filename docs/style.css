@@ -1,5 +1,5 @@
 body {
-  max-width: 850px;
+  max-width: 900px;
   margin: 0 auto;
   font-family: 'Roboto', sans-serif;
   font-size: 17px;
@@ -43,7 +43,7 @@ article h1, h2, h3, h4, h5, h6 {
   border-bottom: 1px solid lightgray;
   border-spacing: 0px;
   border-collapse: collapse;
-  max-width: 850px;
+  max-width: 900px;
 }
 
 #list-of-posts a {
@@ -142,7 +142,7 @@ article h1, h2, h3, h4, h5, h6 {
 }
 
 #post img {
-  max-width: 850px;
+  max-width: 900px;
 }
 
 code[class*="language-"],
