@@ -44,7 +44,7 @@ function removeFirstHeader(html) {
 }
 
 function fixRelativeImagePaths(html, post) {
-  parts = html.split('<img src="');
+  var parts = html.split('<img src="');
   console.log(parts.length);
   console.log(html);
   console.log(parts);
