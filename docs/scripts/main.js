@@ -43,8 +43,8 @@ function removeFirstHeader(html) {
   return html.replace(/<h1.*>.+<\/h1>/, '');
 }
 
-function fixRelativeImagePaths(html) {
-  return html.split('<img src="..').join(`<img src="${urls.blogRawUrl}`);
+function fixRelativeImagePaths(html, post) {
+  return html.split('<img src="').join(`<img src="${urls.postsFolder}` + `/${post.id}}`);
 }
 
 function removeCodeTagFromMathEnvironments(html) {
@@ -55,9 +55,9 @@ function removeCodeTagFromMathEnvironments(html) {
     .split('\\]</code>').join('\\]');
 }
 
-function preprocessPostHtml(html) {
+function preprocessPostHtml(html, post) {
   html = removeFirstHeader(html);
-  html = fixRelativeImagePaths(html);
+  html = fixRelativeImagePaths(html, post);
   html = removeCodeTagFromMathEnvironments(html);
   return html;
 }
@@ -100,7 +100,7 @@ function postContentsHtml(post) {
   var markdown = getContentsOfFileFromURL(url);
   markdown = preprocessPostMarkdown(markdown);
   var html = convertMarkdownToHtml(markdown);
-  html = preprocessPostHtml(html);
+  html = preprocessPostHtml(html, post);
   return `<div id="post">${html}</div>`;
 }
 
