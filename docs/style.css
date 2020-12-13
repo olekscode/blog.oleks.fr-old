@@ -130,7 +130,7 @@ article h1, h2, h3, h4, h5, h6 {
   text-justify: inter-word;
 }
 
-#post a {
+/* #post a {
   background-color: rgba(187, 239, 253, 0.3);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   color: black;
@@ -139,7 +139,7 @@ article h1, h2, h3, h4, h5, h6 {
 
 #post a:hover {
   background-color: #bbeffd;
-}
+} */
 
 #post img {
   max-width: 900px;
