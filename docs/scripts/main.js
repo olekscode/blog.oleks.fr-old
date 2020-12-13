@@ -44,11 +44,7 @@ function removeFirstHeader(html) {
 }
 
 function fixRelativeImagePaths(html, post) {
-  var parts = html.split('<img src="');
-  console.log(parts.length);
-  console.log(html);
-  console.log(parts);
-  return parts.join(`<img src="${urls.postsFolder}` + `/${post.id}}`);
+  return html.split('<img src="').join(`<img src="${urls.postsFolder}/${post.id}}`);
 }
 
 function removeCodeTagFromMathEnvironments(html) {
