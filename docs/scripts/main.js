@@ -96,7 +96,7 @@ function postHeaderHtml(post) {
 }
 
 function postContentsHtml(post) {
-  var url = urls.postsFolder + `/${post.id}.md`;
+  var url = urls.postsFolder + `/${post.id}/index.md`;
   var markdown = getContentsOfFileFromURL(url);
   markdown = preprocessPostMarkdown(markdown);
   var html = convertMarkdownToHtml(markdown);
